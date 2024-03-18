@@ -1,0 +1,78 @@
+@import './base.css';
+
+ul, li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+html, body, #app, .main-container {
+    width: var(--match-parent-size);
+    height: var(--match-parent-size);
+}
+
+#app {
+}
+
+
+@media screen  and (max-width: 768px) {
+    .card-inner {
+        max-width: 100% !important;
+        width: 100% !important;
+    }
+
+    .container {
+        left: 2em !important;
+        top: 2em !important;
+        right: 2em !important;
+        bottom: 2em !important;
+    }
+
+    .small-screen-footer {
+        display: unset !important;
+    }
+
+    .footer-container {
+        display: none !important;
+    }
+
+}
+
+@media screen and (min-width: 768px) and (max-width: 992px) {
+    .projectBoxes {
+        width: 60% !important;
+    }
+
+    .container {
+        left: 3em !important;
+        top: 3em !important;
+        right: 3em !important;
+        bottom: 3em !important;
+    }
+}
+
+@media screen and (min-width: 992px) and (max-width: 1200px) {
+    .projectBoxes {
+        width: 65% !important;
+    }
+
+    .container {
+        left: 3em !important;
+        top: 3em !important;
+        right: 3em !important;
+        bottom: 3em !important;
+    }
+}
+
+
+@media screen and (min-width: 1200px) {
+    .card-inner {
+    }
+
+    .container {
+        left: 5em !important;
+        top: 5em !important;
+        right: 5em !important;
+        bottom: 5em !important;
+    }
+}
