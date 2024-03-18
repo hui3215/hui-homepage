@@ -15,7 +15,7 @@ jobs:
 
       - name: Build
         run: |
-          cd hui-homepage # 进入项目目录
+          cd /home/runner/work/hui-homepage/hui-homepage # 进入项目目录
           npm install  # 安装依赖
           npm run build  # 执行打包
   
