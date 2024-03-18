@@ -17,7 +17,8 @@ interface UserInfo {
 
 interface WebSite {
   title: String,
-  ICPRecordNumber: String
+  ICPRecordNumber: String,
+  backgroundWords: String[]
 }
 
 interface Config {

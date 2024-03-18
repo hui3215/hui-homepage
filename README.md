@@ -2,6 +2,8 @@
 ## 介绍
 本项目旨在搭建一个静态的个人主页系统（简历），通过简单的配置可以快速建站
 
+## 预览
+
 ## 配置
 ```yaml
 userInfo:
@@ -97,6 +99,25 @@ website:
   title: SpringHui
   # ICP 备案号
   ICPRecordNumber: xxxxxxxxx
+  # 背景高亮时显示的文本
+  backgroundWords:
+    - Java
+    - Spring
+    - SpringBoot
+    - SpringCloud
+    - Rabbit
+    - Nacos
+    - ES
+    - Netty
+    - Mysql
+    - Redis
+    - Vue
+    - Html
+    - CSS
+    - JS
+    - .NET
+    - WPF
+    - ASP
 ```
 
 ## 运行 or 部署
@@ -118,7 +139,8 @@ npm run build
 ```shell
 docker build -t homepage .
 
-docker run -d --name --restart=always -p 80:80 homepage
+docker run -d --name hui-homepage -p 80:80 -v /root/hui-homepage/dist/:/usr/share/nginx/html/ homepage
+
 ```
 
 ## 关于

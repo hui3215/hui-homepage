@@ -83,3 +83,21 @@ userInfo:
 website:
   title: SpringHui
   ICPRecordNumber: xxxxxxxxx
+  backgroundWords:
+    - Java
+    - Spring
+    - SpringBoot
+    - SpringCloud
+    - Rabbit
+    - Nacos
+    - ES
+    - Netty
+    - Mysql
+    - Redis
+    - Vue
+    - Html
+    - CSS
+    - JS
+    - .NET
+    - WPF
+    - ASP

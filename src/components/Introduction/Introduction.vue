@@ -17,7 +17,6 @@ const store = useStore()
 
 const introductionData = computed(() => store.getters.userInfo.introduction)
 function getIntroductionContent() {
-  console.log(introductionData.value)
   let content = introductionData.value.content
   introductionData.value.keywords.forEach((item: any) => {
     if (content.includes(item)) {

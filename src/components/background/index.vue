@@ -27,27 +27,17 @@
 <script setup lang="ts">
 
 import BgItem from '@/components/background/components/BgItem.vue'
-import { ref } from 'vue'
+import { computed } from 'vue'
+import { useStore } from 'vuex'
+
+const store = useStore()
+
+const words = computed(() => {
+  return store.getters.website.backgroundWords
+})
 
 const itemSet: Set<String> = new Set()
 let countAddr = 0
-const words = ref([
-  'Java',
-  'Vue',
-  'Html',
-  'Css',
-  'JavaScript',
-  'Linux',
-  'Docker',
-  'Rabbitmq',
-  'SpringCloud',
-  'SpringBoot',
-  'Nacos',
-  'WPF',
-  '.NET',
-  'ASP'
-])
-
 
 function getRandomWord() {
   let size = words.value.length
@@ -69,8 +59,7 @@ function getBgItemClassName(i: Number) {
 
 function activeItem() {
   const size = itemSet.size
-  const min = 1
-  const randomIndex = Math.floor(Math.random() * (size - min + 1)) + min
+  const randomIndex = Math.floor(Math.random() * (size - 1))
   const key = `count-${randomIndex}`
 
   /**

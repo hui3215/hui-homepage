@@ -7,7 +7,8 @@
 </template>
 <script setup lang="ts">
 import SvgIcon from '@/components/SvgIcon.vue'
-import { ElMessage } from 'element-plus'
+import { ElMessage, ElMessageBox } from 'element-plus'
+import type { Action } from 'vuex'
 
 const props = defineProps({
   icon: {
@@ -30,6 +31,12 @@ const props = defineProps({
  */
 function copyEventHandler() {
   if (props.copy) {
+    if (!navigator.clipboard) {
+      ElMessageBox.alert(`${props.copy}`, '账号信息', {
+        confirmButtonText: 'OK'
+      })
+    }
+
     navigator.clipboard.writeText(props.copy).then(() => {
       ElMessage({
         message: '成功复制账号',
