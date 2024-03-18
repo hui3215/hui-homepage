@@ -1,6 +1,6 @@
 <template>
   <div class="main-container">
-    <BackgroundImage class="bg" />
+    <BackgroundImage class="bg" style="display: none"/>
     <div class="container" style="pointer-events: none">
       <el-scrollbar :height="height" style="pointer-events: auto">
         <div class="container-inner">
