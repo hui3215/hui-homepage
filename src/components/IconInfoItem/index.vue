@@ -10,7 +10,8 @@ import SvgIcon from '@/components/SvgIcon.vue'
 
 defineProps({
   icon: {
-    type: String
+    type: String,
+    required: true
   },
   content: {
     type: String

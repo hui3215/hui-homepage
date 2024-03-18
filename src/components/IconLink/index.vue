@@ -12,7 +12,8 @@ import type { Action } from 'vuex'
 
 const props = defineProps({
   icon: {
-    type: String
+    type: String,
+    required: true
   },
   size: {
     type: String,
