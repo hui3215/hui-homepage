@@ -96,7 +96,7 @@ website:
   # 网站 title
   title: SpringHui
   # ICP 备案号
-  ICPRecordNumber: 冀ICP备2021022328号
+  ICPRecordNumber: xxxxxxxxx
 ```
 
 ## 运行 or 部署
