@@ -17,12 +17,28 @@ jobs:
           password: ${{ secrets.HUB_GITHUB_TOKEN }} # 需要去 https://github.com/settings/tokens 生成一个 名为 token，注意此token 需要读写 packages 等权限 
       - name: Build
         run: |
-          npm install  # 安装依赖
+          npm install  # 安装依赖1
           npm run build  # 执行打包
       - name: show dir
         run: ls
+
       - name: Build the  Docker image
         run:
           | # 使用 上一步写的 Dockerfile 构建镜像并发布到私有仓库； 发布完成可以去 https://github.com/MrGaoGang?tab=packages 查看
           docker build . --file Dockerfile --tag ghcr.io/hui3215/hui-homepage:latest 
           docker push ghcr.io/hui3215/hui-homepage:latest
+      - name: Tag Docker image as public
+        run: |
+          docker tag ghcr.io/hui3215/hui-homepage:latest ghcr.io/hui3215/hui-homepage:latest
+
+      - name: 更新服务器
+        uses: appleboy/ssh-action@v0.1.10
+        with:
+          host: ${{ secrets.DR_HOST }} # 服务器ip地址 ; 需要去仓库的 settings/secrets/actions 去创建
+          username: ${{ secrets.DR_USER }} # 服务器用户名称；需要去仓库的 settings/secrets/actions 去创建
+          password: ${{ secrets.DR_PASS }} # 服务器密码；需要去仓库的 settings/secrets/actions 去创建
+          script: | # 重启更新镜像
+            docker stop web-image 
+            docker rm web-image 
+            docker pull ghcr.io/hui3215/hui-homepage:latest 
+            docker run -dp 80:80  --restart=always -v /root/hui-homepage/dist/:/usr/share/nginx/html/ --name web-image ghcr.io/hui3215/hui-homepage
