@@ -10,7 +10,7 @@ jobs:
       # 这是github官方的一个action，用于clone该仓库的源码到工作流中，
       - name: Checkout 🛎️
         uses: actions/checkout@master
-      - uses: docker/login-action@v1
+      - uses: docker/login-action@v3.1.0
         with:
           registry: ghcr.io # 声明镜像源
           username: ${{ github.actor }} # 当前github 用户名
