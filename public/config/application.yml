@@ -63,12 +63,12 @@ userInfo:
       color: '#ff0081'
   projectsInfo:
     - name: '个人主页'
-      url: ''
+      url: 'https://github.com/hui3215/hui-homepage.git'
       skills:
         - Vue
       description: '让人快速了解你会什么，有什么事迹的个人主页'
     - name: '河图洛书'
-      url: ''
+      url: 'https://gitee.com/MchBlog/map-system-manager.git'
       skills:
         - Vue
         - Spring Boot

@@ -14,7 +14,16 @@
             </span>
           </div>
         </template>
-        <p>{{ item.description }}</p>
+        <div>
+          <p>{{ item.description }}</p>
+          <div class="btn-project-boxs" v-if="item.url">
+            <CircleButton class="btn-circle" @click="openBlankUrl(item.url)">
+              <template #default>
+                <SvgIcon class="btn-circle-icon-link" :name="getProjectTypeIcon(item.url)" @click="openBlankUrl(item.url)" size="2.2em"/>
+              </template>
+            </CircleButton>
+          </div>
+        </div>
       </el-collapse-item>
     </el-collapse>
   </Card>
@@ -24,11 +33,32 @@ import Card from '@/components/Card/index.vue'
 import { computed, ref } from 'vue'
 import SvgIcon from '@/components/SvgIcon.vue'
 import { useStore } from 'vuex'
-const store = useStore();
-const projectsInfo = computed(()=>{
-  return store.getters.userInfo.projectsInfo;
+import CircleButton from '@/components/CircleButton/CircleButton.vue'
+
+const remoteTypes = ['github', 'gitee', 'gitlab']
+const DEFAULT_REMOTE_TYPE = "default-type"
+const store = useStore()
+const projectsInfo = computed(() => {
+  return store.getters.userInfo.projectsInfo
 })
 const activeName = ref(projectsInfo.value[0].name)
+
+/**
+ * 获取项目仓库logo
+ * @param url
+ */
+function getProjectTypeIcon(url: string) {
+  for (let remoteType of remoteTypes) {
+    if (url.includes(remoteType)){
+      return remoteType;
+    }
+  }
+  return DEFAULT_REMOTE_TYPE;
+}
+
+function openBlankUrl(url: string) {
+  window.open(url.toString())
+}
 </script>
 
 <style scoped>
@@ -54,8 +84,26 @@ const activeName = ref(projectsInfo.value[0].name)
   .skill-item {
     margin: 0 0.2em;
   }
-  .project-name{
+
+  .project-name {
     margin: 0 0.5em;
+  }
+
+  .btn-project-boxs {
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    margin-right: 0.5em;
+
+    .btn-circle-icon-link{
+      transition: 0.2s;
+    }
+    .btn-circle:hover{
+       outline-width: 0.4em;
+    }
+    .btn-circle:hover .btn-circle-icon-link{
+      transform: scale(1.2) rotate(360deg);
+    }
   }
 }
 
