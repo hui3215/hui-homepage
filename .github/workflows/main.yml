@@ -1,29 +1,18 @@
-name: Publish Image
-
-on:
-  push: # push 到主分支自动 发布
-    branches: ["main"]
-    paths-ignore: # 忽略一些不必要的文件
-      - ".gitignore"
-      - "README.md"
-      - ".vscode/**"
-  pull_request:
-    branches: ["main"]
-
+name: build
+on: 
+  push: 
+    branches: 
+      - main # 这里表示push到main分支就会触发流程
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
-    steps:
-      - name: checkout # 步骤名字
-        # 使用action库  actions/checkout拉取源码
-        uses: actions/checkout@master
+    steps:
+      # 这是github官方的一个action，用于clone该仓库的源码到工作流中，
+      - name: Checkout 🛎️
+        uses: actions/checkout@master
 
-      # 安装依赖
-      - name: install
-        run: npm install
+      - name: Build
+        run: |
+          npm install  # 安装依赖
+          npm run build  # 执行打包
 
-      # 打包
-      - name: build project
-        run: npm run build
-
-      
