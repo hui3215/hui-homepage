@@ -53,7 +53,6 @@ jobs:
           script: | # 重启更新镜像
             docker stop hui-homepage 
             docker rm hui-homepage 
-            docker login -u hui3215 -p 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 https://ghcr.io 
             docker pull ghcr.io/hui3215/hui-homepage:latest 
             docker run -dp 80:80  --restart=always --name hui-homepage ghcr.io/hui3215/hui-homepage
 
