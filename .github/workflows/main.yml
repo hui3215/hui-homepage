@@ -17,7 +17,7 @@ jobs:
           password: ${{ secrets.HUB_GITHUB_TOKEN }} # 需要去 https://github.com/settings/tokens 生成一个 名为 token，注意此token 需要读写 packages 等权限 
       - name: Build
         run: |
-          npm install  # 安装依赖
+          npm install  # 安装依赖1
           npm run build  # 执行打包
       - name: show dir
         run: ls
