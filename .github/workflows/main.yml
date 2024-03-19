@@ -9,29 +9,20 @@ jobs:
     steps:
       # 这是github官方的一个action，用于clone该仓库的源码到工作流中，
       - name: Checkout 🛎️
-        uses: actions/checkout@v2
+        uses: actions/checkout@master
+      - uses: docker/login-action@v3.1.0
         with:
-          persist-credentials: false
-      - uses: actions/setup-node@v2 
-        with:
-          node-version: '18'
+          registry: ghcr.io # 声明镜像源1
+          username: ${{ github.actor }} # 当前github 用户名
+          password: ${{ secrets.HUB_GITHUB_TOKEN }} # 需要去 https://github.com/settings/tokens 生成一个 名为 token，注意此token 需要读写 packages 等权限 
       - name: Build
         run: |
-          cd /home/runner/work/hui-homepage/hui-homepage # 进入项目目录
           npm install  # 安装依赖
           npm run build  # 执行打包
-  
-      # 连接到ssh，并且做一个拷贝操作的action
-      - name: Deploy 🚀
-        uses: cross-the-world/scp-pipeline@master
-        env:
-          WELCOME: "ssh scp ssh pipelines"
-          LASTSSH: "Doing something after copying"
-        with:
-         host: ${{ secrets.DR_HOST }}
-         user: ${{ secrets.DR_USER }}
-         pass: ${{ secrets.DR_PASS }}
-         connect_timeout: 10s
-         local: '/root/hui-homepage/dist/*' # 这里是下一步要创建的vue项目构建完成后的静态资源路径
-         remote: /www/actionTest # 这里是 step1 中，在服务器上创建用于存放静态资源的文件夹
-
+      - name: show dir
+        run: ls
+      - name: Build the  Docker image
+        run:
+          | # 使用 上一步写的 Dockerfile 构建镜像并发布到私有仓库； 发布完成可以去 https://github.com/MrGaoGang?tab=packages 查看
+          docker build . --file Dockerfile --tag ghcr.io/hui3215/hui-homepage:latest 
+          docker push ghcr.io/hui3215/hui-homepage:latest
