@@ -75,7 +75,7 @@ function loadFile(name: string) {
 
 
 function getConfig(): Config {
-  const file = loadFile('./application.yml') as string
+  const file = loadFile('./config/application.yml') as string
   return yaml.load(file) as Config
 }
 
