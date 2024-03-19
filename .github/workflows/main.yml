@@ -27,3 +27,16 @@ jobs:
           docker build . --file Dockerfile --tag ghcr.io/hui3215/hui-homepage:latest 
           docker push ghcr.io/hui3215/hui-homepage:latest
 
+      - name: 更新服务器
+        uses: appleboy/ssh-action@v0.1.10
+        with:
+          host: ${{ secrets.SERVER_HOST }} # 服务器ip地址 ; 需要去仓库的 settings/secrets/actions 去创建
+          username: ${{ secrets.SERVER_USER }} # 服务器用户名称；需要去仓库的 settings/secrets/actions 去创建
+          password: ${{ secrets.SERVER_PWD }} # 服务器密码；需要去仓库的 settings/secrets/actions 去创建
+          port: ${{ secrets.SERVER_PORT }} # 服务器端口，默认22；需要去仓库的 settings/secrets/actions 去创建
+          script: | # 重启更新镜像
+            docker stop web-image 
+            docker rm web-image 
+            docker login -u hui3215 -p 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 https://ghcr.io 
+            docker pull ghcr.io/hui3215/hui-homepage:latest 
+            docker run -dp 80:80  --restart=always --name web-image ghcr.io/hui3215/hui-homepage
