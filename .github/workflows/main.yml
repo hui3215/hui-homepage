@@ -12,7 +12,7 @@ jobs:
         uses: actions/checkout@master
       - uses: docker/login-action@v3.1.0
         with:
-          registry: ghcr.io # 声明镜像源
+          registry: ghcr.io # 声明镜像源1
           username: ${{ github.actor }} # 当前github 用户名
           password: ${{ secrets.HUB_GITHUB_TOKEN }} # 需要去 https://github.com/settings/tokens 生成一个 名为 token，注意此token 需要读写 packages 等权限 
       - name: Build
