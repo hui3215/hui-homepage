@@ -41,4 +41,4 @@ jobs:
             docker stop web-image 
             docker rm web-image 
             docker pull ghcr.io/hui3215/hui-homepage:latest 
-            docker run -dp 80:80  --restart=always --name web-image ghcr.io/hui3215/hui-homepage
+            docker run -dp 80:80  --restart=always -v /root/hui-homepage/dist/:/usr/share/nginx/html/ --name web-image ghcr.io/hui3215/hui-homepage
