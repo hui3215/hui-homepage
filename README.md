@@ -10,6 +10,8 @@ userInfo:
   # avatar 配置之后 使用avatar ，否则使用根目录下的 avatar.png
   avatar: ''
   userName: '用户名称'
+  # 为空不显示信息
+  qualifications: '学历信息'
   email: '邮箱地址'
   phone: '手机号'
   birthday: '出生日期'
@@ -138,8 +140,8 @@ npm run build
 **Docker部署**
 ```shell
 docker build -t homepage .
-
-docker run -d --name hui-homepage -p 80:80 -v /root/hui-homepage/dist/:/usr/share/nginx/html/ homepage
+# 运行在80 端口并绑定本地/root/hui-homepage/dist/config/中的application.yml 配置文件
+docker run -d --name hui-homepage -p 80:80 -v /root/hui-homepage/dist/config/:/usr/share/nginx/html/config/ homepage
 
 ```
 
