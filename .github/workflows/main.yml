@@ -38,7 +38,7 @@ jobs:
           username: ${{ secrets.DR_USER }} # 服务器用户名称；需要去仓库的 settings/secrets/actions 去创建
           password: ${{ secrets.DR_PASS }} # 服务器密码；需要去仓库的 settings/secrets/actions 去创建
           script: | # 重启更新镜像
-            docker stop web-image 
-            docker rm web-image 
+            docker stop hui-homepage 
+            docker rm hui-homepage 
             docker pull ghcr.io/hui3215/hui-homepage:latest 
-            docker run -dp 80:80  --restart=always  --name web-image ghcr.io/hui3215/hui-homepage:latest
+            docker run -dp 80:80  --restart=always  --name hui-homepage ghcr.io/hui3215/hui-homepage:latest
