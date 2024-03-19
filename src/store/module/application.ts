@@ -6,6 +6,7 @@ interface UserInfo {
   email: String,
   phone: String,
   birthday: String,
+  qualifications: String,
   description: String,
   account: Account[],
   skills: Skill[],

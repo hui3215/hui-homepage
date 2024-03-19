@@ -10,6 +10,7 @@
           <div class="user-info-details">
             <IconInfoItem v-if="userInfo.email" icon="email" :content="userInfo.email" />
             <IconInfoItem v-if="userInfo.phone" icon="phone" :content="userInfo.phone" />
+            <IconInfoItem v-if="userInfo.qualifications" icon="qualifications" :content="userInfo.qualifications" />
             <IconInfoItem v-if="userInfo.birthday" icon="birthday" :content="userInfo.birthday" />
             <IconInfoItem v-if="userInfo.description" icon="description" :content="userInfo.description" />
           </div>
