@@ -111,7 +111,7 @@ website:
     # 瑰丽紫红渐变 magnificent-purple-red-gradient
     # 温暖阳光渐变 warm-sunlight-gradient
     # 自然绿意渐变 natural-greenery-gradients
-    theme: sky-blue-gradient
+    theme: default
     borderWidth: 4px
     borderRadius: 16px
 

@@ -97,11 +97,8 @@ userInfo:
       - Linux
       - Java
 website:
-  # 网站 title
   title: SpringHui
-  # ICP 备案号
   ICPRecordNumber: xxxxxxxxx
-  # 背景高亮时显示的文本
   backgroundWords:
     - Java
     - Spring
@@ -120,6 +117,18 @@ website:
     - .NET
     - WPF
     - ASP
+  backgroundColor: #222
+  backgroundItemInfoBorderColor: #22d3ee
+  cardInfo:
+    # default
+    # 神秘紫蓝渐变 mystic-violet-blue-gradient
+    # 天空蓝渐变 sky-blue-gradient
+    # 瑰丽紫红渐变 magnificent-purple-red-gradient
+    # 温暖阳光渐变 warm-sunlight-gradient
+    # 自然绿意渐变 natural-greenery-gradients
+    theme: sky-blue-gradient
+    borderWidth: 4px
+    borderRadius: 16px
 ```
 
 ## 运行 or 部署
