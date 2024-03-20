@@ -102,8 +102,8 @@ website:
     - .NET
     - WPF
     - ASP
-  backgroundColor: #qweqwe
-  backgroundItemInfoBorderColor: #awdadswasw
+  backgroundColor: #222
+  backgroundItemInfoBorderColor: #22d3ee
   cardInfo:
     # default
     # 神秘紫蓝渐变 mystic-violet-blue-gradient
@@ -111,7 +111,7 @@ website:
     # 瑰丽紫红渐变 magnificent-purple-red-gradient
     # 温暖阳光渐变 warm-sunlight-gradient
     # 自然绿意渐变 natural-greenery-gradients
-    theme: default
+    theme: sky-blue-gradient
     borderWidth: 4px
     borderRadius: 16px
 
