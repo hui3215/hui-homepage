@@ -110,8 +110,8 @@ website:
     # 天空蓝渐变 sky-blue-gradient
     # 瑰丽紫红渐变 magnificent-purple-red-gradient
     # 温暖阳光渐变 warm-sunlight-gradient
-    #  自然绿意渐变 natural-greenery-gradients
+    # 自然绿意渐变 natural-greenery-gradients
     theme: default
-    borderWidth: 4
-    borderRadius: 16
+    borderWidth: 4px
+    borderRadius: 16px
 

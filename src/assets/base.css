@@ -25,6 +25,9 @@
     --highlight-keyword-color: #ff00ae;
     --background-color: #222;
 
+    --card-width: 4px;
+    --card-radius: 16px;
+
     --theme: var(--default);
     --default: linear-gradient(to right, #222, #222), linear-gradient(180deg, #8F41E9, #578AEF);
     --mystic-violet-blue-gradient: linear-gradient(to right, #222, #222), linear-gradient(135deg, #c850c0, #4158d0);

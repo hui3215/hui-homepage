@@ -19,19 +19,22 @@ import { useStore } from 'vuex'
 
 const cardInnerRef = ref()
 const store = useStore()
-const theme = computed(() => {
-  return store.getters.website.cardInfo.theme
+const cardInfo = computed(() => {
+  return store.getters.website.cardInfo
 })
 onMounted(() => {
-  document.documentElement.style.setProperty('--theme', `var(--${theme.value})`)
+  document.documentElement.style.setProperty('--theme', `var(--${cardInfo.value.theme})`)
+  document.documentElement.style.setProperty('--card-width', `${cardInfo.value.borderWidth}`)
+  document.documentElement.style.setProperty('--card-radius', `${cardInfo.value.borderRadius}`)
+
 })
 </script>
 
 <style scoped>
 .card-inner {
   margin: 8px;
-  border: 4px solid transparent;
-  border-radius: 16px;
+  border: var(--card-width) solid transparent;
+  border-radius: var(--card-radius);
   background-clip: padding-box, border-box;
   background-origin: padding-box, border-box;
   background-image: var(--theme);
