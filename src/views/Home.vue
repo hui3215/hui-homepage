@@ -27,10 +27,18 @@ import UserSkills from '@/components/UserSkills/UserSkills.vue'
 import Introduction from '@/components/Introduction/Introduction.vue'
 import ProjectBoxs from '@/components/ProjectBoxs/ProjectBoxs.vue'
 import Footer from '@/components/footer/Footer.vue'
-import {  ref } from 'vue'
+import { computed, onMounted, ref } from 'vue'
+import { useStore } from 'vuex'
 
+const store = useStore();
+
+const webTitle = computed(()=> store.getters.website.title);
 
 let height = ref()
+
+onMounted(()=>{
+  document.title = webTitle.value;
+})
 
 </script>
 

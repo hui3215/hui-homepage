@@ -19,7 +19,16 @@ interface UserInfo {
 interface WebSite {
   title: String,
   ICPRecordNumber: String,
-  backgroundWords: String[]
+  backgroundWords: String[],
+  backgroundColor: String,
+  backgroundItemInfoBorderColor: String,
+  cardInfo: CardInfo
+}
+
+interface CardInfo {
+  theme: String,
+  borderWidth: String,
+  borderRadius: String
 }
 
 interface Config {
