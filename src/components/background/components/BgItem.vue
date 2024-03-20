@@ -5,11 +5,20 @@
 </template>
 
 <script setup lang="ts">
+import { useStore } from 'vuex'
+import { computed, onMounted } from 'vue'
+
 const props = defineProps({
   active: {
     type: Boolean,
     default: false
   }
+})
+const store = useStore()
+const theme = computed(() => store.getters.website.cardInfo.theme)
+onMounted(() => {
+  document.documentElement.style.setProperty('--bg-item-color', `var(--bg-item-${theme.value})`)
+  document.documentElement.style.setProperty('--bg-item-border-color', `var(--bg-item-border-${theme.value})`)
 })
 
 
@@ -19,7 +28,7 @@ const props = defineProps({
 .bg-item {
   width: 100%;
   height: 100%;
-  border: 3px solid var(--primary-color);
+  border: 3px solid var(--bg-item-border-color);
   border-radius: 8px;
   transition: 0.5s ease-in-out;
   opacity: 0.5;
@@ -40,8 +49,8 @@ const props = defineProps({
 .bg-item:hover, .active {
   opacity: 1;
   scale: 1.02;
-  background-color: color-mix(in hsl, var(--color), transparent 20%);
-  box-shadow: 0 0 10px var(--color), 0 0 40px var(--color);
+  background-color: color-mix(in hsl, var(--bg-item-color), transparent 20%);
+  box-shadow: 0 0 10px var(--bg-item-color), 0 0 40px var(--bg-item-color);
   border: 3px solid transparent;
   color: var(--background-color);
 }

@@ -24,6 +24,35 @@
     --color: #22d3ee;
     --highlight-keyword-color: #ff00ae;
     --background-color: #222;
+
+    --card-width: 4px;
+    --card-radius: 16px;
+
+    --theme: var(--default);
+    --default: linear-gradient(to right, #222, #222), linear-gradient(180deg, #8F41E9, #578AEF);
+    --mystic-violet-blue-gradient: linear-gradient(to right, #222, #222), linear-gradient(135deg, #c850c0, #4158d0);
+    --sky-blue-gradient: linear-gradient(to right, #222, #222), linear-gradient(135deg, #a1c4fd, #c2e9fb);
+    --magnificent-purple-red-gradient: linear-gradient(to right, #222, #222), linear-gradient(135deg, #ff9a9e, #fad0c4);
+    --warm-sunlight-gradient: linear-gradient(to right, #222, #222), linear-gradient(135deg, #f6d365, #fda085);
+    --natural-greenery-gradients: linear-gradient(to right, #222, #222), linear-gradient(135deg, #a8e063, #56ab2f);
+
+    --bg-item-color: var(--bg-item-default);
+    --bg-item-border-color: var(--bg-item-default);
+
+    --bg-item-default: #22d3ee;
+    --bg-item-border-default: #1cacb9;
+
+    --bg-item-mystic-violet-blue-gradient: #578AEF;
+    --bg-item-border-mystic-violet-blue-gradient: #436bbb;
+
+    --bg-item-sky-blue-gradient: #a1c4fd;
+    --bg-item-border-sky-blue-gradient: #6f87af;
+
+    --bg-item-magnificent-purple-red-gradient: #fad0c4;
+    --bg-item-border-magnificent-purple-red-gradient: #b2948c;
+
+    --bg-item-natural-greenery-gradients: #a8e063;
+    --bg-item-border-natural-greenery-gradients: #6d9140;
 }
 
 /* semantic color variables for this project */
