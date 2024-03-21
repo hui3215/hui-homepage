@@ -3,8 +3,6 @@ on:
   push: 
     branches: 
       - main # 这里表示push到main分支就会触发流程
-    tags:
-      - 'v*'
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -21,18 +19,8 @@ jobs:
         run: |
           npm install  # 安装依赖1
           npm run build  # 执行打包
-      - name: show dir
-        run: ls
-      - name: Create Release
-        id: create_release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
-        with:
-          tag_name: ${{ github.event.release.tag_name }}
-          release_name: Release ${{ github.event.release.tag_name }}
-          draft: false
-          prerelease: false
+      - name: tree dir
+        run: tree
       - name: Build the  Docker image
         run:
           | # 使用 上一步写的 Dockerfile 构建镜像并发布到私有仓库； 发布完成可以去 https://github.com/MrGaoGang?tab=packages。
