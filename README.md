@@ -151,7 +151,6 @@ npm run build
 docker build -t homepage .
 # 运行在80 端口并绑定本地/root/hui-homepage/dist/config/中的application.yml 配置文件
 docker run -d --name hui-homepage -p 80:80 -v /root/hui-homepage/dist/config/:/usr/share/nginx/html/config/ homepage
-
 ```
 
 ## 关于
