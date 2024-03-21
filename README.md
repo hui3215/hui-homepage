@@ -147,7 +147,17 @@ npm run build
 > 可以使用宝塔可视化操作部署
 
 **Docker部署**
+
+## 运行镜像
 ```shell
+docker pull ghcr.io/hui3215/hui-homepage:latest
+
+docker run -d --name hui-homepage -p 80:80 -v /root/hui-homepage/dist/config/:/usr/share/nginx/html/config/ hui-homepage:latest
+```
+
+## 构建镜像并运行
+```shell
+## 通过项目构建并运行docker镜像
 docker build -t homepage .
 # 运行在80 端口并绑定本地/root/hui-homepage/dist/config/中的application.yml 配置文件
 docker run -d --name hui-homepage -p 80:80 -v /root/hui-homepage/dist/config/:/usr/share/nginx/html/config/ homepage
