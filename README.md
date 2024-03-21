@@ -154,6 +154,7 @@ docker run -d --name hui-homepage -p 80:80 -v /root/hui-homepage/dist/config/:/u
 ```
 
 ## 关于
+
 本项目免费使用，欢迎各位毕业生使用本项目增加个人主页简历
 * 本项目免费使用，已经标注作者，禁止删除
 * 可以对本项目二次开发，仍需注明原作者
